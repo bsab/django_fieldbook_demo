@@ -35,7 +35,7 @@ INTERNAL_IPS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+SITE_ID = 1 # indica il sito di base selezionato dalla tabella site
 
 try:
     #
