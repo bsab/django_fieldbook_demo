@@ -49,6 +49,7 @@ try:
         )
     }
 except Exception as e:
+    print "settings exception-->", str(e)
     #
     # local configuration
     #
