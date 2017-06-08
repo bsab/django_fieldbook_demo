@@ -13,20 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
-from django.views import generic
+from django.conf.urls import url
+from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.decorators import login_required
 
-from app.views import IndexView, SheetTableView, SheetEntryView
+from app import forms
+from app.views import IndexView, UserRegistrationView, SheetTableView, SheetEntryView
 
 urlpatterns = [
-    url(r'^accounts/login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^accounts/logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
-
-    url(r'^fieldbook/', include('fieldbook.urls')),
 
     url('^$', IndexView.as_view(), name="index"),
+
+    url(r'^login/$', auth_views.login,
+        {'template_name': 'login.html',
+         'authentication_form': forms.MaterialLoginForm},
+        name='login'),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
+    url(r'^register/$', UserRegistrationView.as_view(), name="registration"),
+    url(r'^help/$', TemplateView.as_view(template_name="help.html"), name="help"),
+
     # list sheets
     url(r'^sheet-table/sheet_name=(?P<sheet_name>[-\w]+)/$', SheetTableView.as_view(), name='sheet_table'),
     # single sheet by id

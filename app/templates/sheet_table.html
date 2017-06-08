@@ -1,5 +1,5 @@
-<div class="card-content">
-    <table id="table" class="table bordered" data-form-control="datatable">
+<div class="card-content" style="background-color: white">
+    <table id="table" class="responsive-table bordered striped " data-form-control="datatable">
         <thead>
         <tr>
             <th data-name="DEL" class="del"></th>
@@ -12,7 +12,9 @@
         <tbody>
         {% for item, row in data %}
             <tr>
-                <td><a href="{% url 'sheet_entry_delete' record_id=forloop.counter sheet_name=sheet_name %}" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td>
+                <a  href="{% url 'sheet_entry_delete' record_id=forloop.counter sheet_name=sheet_name %}"  class="btn-floating red"><i class="material-icons left">delete_forever</i>button</a>
+
                 {% for column_name, item in row.items %}
                     <td>
                         {% if forloop.first %}
@@ -28,7 +30,7 @@
     </table>
 
     <div class="pagination">
-        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        <a class="btn-floating green"><i class="material-icons">add</i></a>
 
         <span class="page-links">
                 {% if sheet_table_paginated.has_previous %}

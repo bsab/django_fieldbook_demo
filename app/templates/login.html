@@ -1,15 +1,23 @@
-{% extends 'base.html' %}
+{% extends 'base_form.html' %}
+{% load material_form %}
 
-{% block title %}Login{% endblock %}
+{% block extrahead %}
+<style type="text/css">
+    {{ form.css }}
+</style>
+{% endblock %}
 
-{% block content %}
-    <div class="container-fluid" style="text-align: center">
+{% block formclass %}{{ form.blockclass|default:"col s12 m8 offset-m2 l8 offset-l2" }}{% endblock %}
 
-        <h2>Login</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p|default:"col s12 m8 offset-m2 l8 offset-l2" }}
-            <button type="submit">Login</button>
-        </form>
-    </div>
+{% block formtitle %}{{ form.title }}{% endblock %}
+
+{% block formbody %}
+
+    {% include form.template %}
+
+{% endblock %}
+
+{% block formbuttons %}
+    {% include form.buttons %}
+
 {% endblock %}

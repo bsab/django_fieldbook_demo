@@ -3,6 +3,11 @@
 {% block title %}Sheet{% endblock %}
 
 {% block content %}
+
+<div class="row valign change-form">
+    <div class="col s12 m8 offset-m2 l8 offset-l2">
+        <div class="card">
+
     {% if message_error %}
         <div style="text-align:center">
             <h1>ERROR</h1>
@@ -16,4 +21,9 @@
         {%  include 'sheet_entry.html' %}
     {% endif %}
 
+        </div>
+    </div>
+</div>
 {% endblock %}
+
+

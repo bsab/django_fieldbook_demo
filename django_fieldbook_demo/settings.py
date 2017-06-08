@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #
+    'material',
     'fieldbook'
 ]
 
@@ -94,12 +95,27 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'material.frontend.context_processors.modules',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'django_fieldbook_demo.wsgi.application'
+
+# shortcut for in form templates
+try:
+    # shortcut for in form templates
+    from django.template.base import add_to_builtins
+    add_to_builtins('material.templatetags.material_form')
+except ImportError:
+    """
+    Django 1.9.
+    """
+    TEMPLATES[0]['OPTIONS']['builtins'] = [
+        'material.templatetags.material_form',
+    ]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

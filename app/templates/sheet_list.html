@@ -1,11 +1,11 @@
 <div class="card-content">
     <h1> Sheet List</h1>
-    <div class="list-group">
+     <div class="collection">
         {% for item in sheet_list %}
             {%  if forloop.first %}
-                <a href="{% url 'sheet_table' sheet_name=item %}" class="list-group-item active">{{ item }}</a>
+                <a href="{% url 'sheet_table' sheet_name=item %}" class="collection-item active"><i class="material-icons">view_list</i> {{ item }}</a>
             {%  else %}
-                <a href="{% url 'sheet_table' sheet_name=item %}" class="list-group-item">{{ item }}</a>
+                <a href="{% url 'sheet_table' sheet_name=item %}" class="collection-item"><i class="material-icons">view_list</i> {{ item }}</a>
             {%  endif %}
         {% endfor %}
     </div>

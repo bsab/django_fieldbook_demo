@@ -8,7 +8,14 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from fieldbook.views.sheet import FieldbookSheetIndexView, FieldbookSheetTableView, FieldbookSheetEntryView
+from fieldbook.views.user import FieldBookUserRegistration
+from . import forms
 
+class UserRegistrationView(FieldBookUserRegistration):
+    """User registration class based view.
+    Override the fieldbook view to customize the form to use a google.material layout.
+    """
+    form_class = forms.MaterialRegistrationForm
 
 class IndexView(FieldbookSheetIndexView):
     """Index class based view.
