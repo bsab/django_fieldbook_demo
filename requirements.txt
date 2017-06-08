@@ -1,7 +1,7 @@
 Django==1.11
+django-material
 django-fieldbook
 fieldbook_py
-django-material
 #
 # Heroku
 #
