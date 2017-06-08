@@ -1,3 +1,4 @@
+{%  load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +35,9 @@
     <div class="nav-wrapper">
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
         <div class="brand-logo" >
-            <a href="{% url 'index' %}">Django-Fieldbook</a>
+            <a href="{% url 'index' %}">
+                <img src="{% static 'logo-djF.png' %}" style="width:60%; margin-top: 10px; margin-left: 10px">
+            </a>
         </div>
 
 

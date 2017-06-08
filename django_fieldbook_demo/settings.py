@@ -65,7 +65,6 @@ except Exception as e:
 # Application definition
 INSTALLED_APPS = [
     # material apps
-    'material.theme.green',  # color theme
     'material',
     #
     'django.contrib.admin',
