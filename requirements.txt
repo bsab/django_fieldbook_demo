@@ -7,6 +7,7 @@ fieldbook_py
 #
 python-decouple
 gunicorn==19.6.0
+whitenoise==3.2
 psycopg2==2.6.2
 dj-database-url==0.4.1
 #
