@@ -19,11 +19,12 @@ from django.contrib.auth import views as auth_views
 
 from app import forms
 from app.views import IndexView, UserRegistrationView, SheetTableView, SheetEntryView
+from app.views import webhook
 
 urlpatterns = [
 
     url('^$', IndexView.as_view(), name="index"),
-    url(r'^webhook', IndexView.webhook, name='webhook'),#to remove
+    url(r'^webhook', webhook, name='webhook'),#to remove
 
     url(r'^login/$', auth_views.login,
         {'template_name': 'login.html',
