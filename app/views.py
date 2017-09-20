@@ -160,9 +160,9 @@ def webhook(request):
             del meta[k]
 
     print "**************************************"
-    print jsondata
-    print request.POST
-    print request
+    print "--->", jsondata
+    print "--->", request.POST
+    print "--->", request
     print "**************************************"
 
     return HttpResponse(status=200)
