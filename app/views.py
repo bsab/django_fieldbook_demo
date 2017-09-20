@@ -153,7 +153,16 @@ from django.views.decorators.http import require_POST
 @require_POST
 def webhook(request):
 
+    jsondata = request.body
+    data = json.loads(jsondata)
+    meta = copy.copy(request.META)
+    for k, v in meta.items():
+        if not isinstance(v, basestring):
+            del meta[k]
+
     print "**************************************"
+    print jsondata
+    print data
     print request.POST
     print request
     print "**************************************"
