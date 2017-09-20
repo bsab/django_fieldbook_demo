@@ -140,3 +140,21 @@ class SheetEntryView(FieldbookSheetEntryView):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
         return super(SheetEntryView, self).dispatch(request, *args, **kwargs)
+
+
+#TO REMOVE
+import copy, json, datetime
+from django.utils import timezone
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+
+@csrf_exempt
+@require_POST
+def webhook(request):
+
+    print "**************************************"
+    print request.POST
+    print "**************************************"
+
+    return HttpResponse(status=200)

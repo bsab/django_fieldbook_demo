@@ -23,6 +23,7 @@ from app.views import IndexView, UserRegistrationView, SheetTableView, SheetEntr
 urlpatterns = [
 
     url('^$', IndexView.as_view(), name="index"),
+    url(r'^webhook', IndexView.webhook, name='webhook'),#to remove
 
     url(r'^login/$', auth_views.login,
         {'template_name': 'login.html',
